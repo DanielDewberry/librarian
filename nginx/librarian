@@ -75,6 +75,12 @@ server {
   # ============================================================================
   # Utility
   # ============================================================================
+  location /account-service/ {
+    alias /usr/share/doc/accountsservice/spec/;
+    index on;
+    try_files $uri $uri/ AccountsService.html;
+  }
+
   location /font-config/ {
     alias /usr/share/doc/fontconfig/;
     index on;
