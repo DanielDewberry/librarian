@@ -27,6 +27,12 @@ server {
     try_files $uri $uri/ /index.html;
   }
 
+  location /neomutt/ {
+    alias /usr/share/doc/neomutt/html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   location / {
     root /var/www/librarian/;
     # index librarian.html;
