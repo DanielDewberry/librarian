@@ -6,6 +6,12 @@ server {
   # ============================================================================
   # Programming
   # ============================================================================
+  location /libffi/ {
+    alias /usr/share/doc/libffi8/html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   location /valgrind/ {
     alias /usr/share/doc/valgrind/html/;
     index on;
