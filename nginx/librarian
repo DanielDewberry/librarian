@@ -81,6 +81,12 @@ server {
     try_files $uri $uri/ /fontconfig-user.html;
   }
 
+  location /mime-spec/ {
+    alias /usr/share/doc/shared-mime-info/shared-mime-info-spec.html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   # ============================================================================
   # Index
   # ============================================================================
