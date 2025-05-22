@@ -52,6 +52,21 @@ server {
   }
 
   # ============================================================================
+  # Network
+  # ============================================================================
+  location /dnsmasq-setup/ {
+    alias /usr/share/doc/dnsmasq-base/;
+    index on;
+    try_files $uri $uri/ /setup.html;
+  }
+
+  location /dnsmasq-doc/ {
+    alias /usr/share/doc/dnsmasq-base/;
+    index on;
+    try_files $uri $uri/ /doc.html;
+  }
+
+  # ============================================================================
   # Index
   # ============================================================================
   location / {
