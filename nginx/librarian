@@ -93,6 +93,12 @@ server {
     try_files $uri $uri/ AccountsService.html;
   }
 
+  location /bup/ {
+    alias /usr/share/doc/bup/;
+    index on;
+    try_files $uri $uri/ bup-index.html;
+  }
+
   location /smartmontools-badblocks/ {
     alias /usr/share/doc/smartmontools/;
     index on;
