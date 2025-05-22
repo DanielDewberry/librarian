@@ -3,6 +3,9 @@ server {
   listen 9000;
   add_header X-Served-By "Doc server";
 
+  # ============================================================================
+  # Programming
+  # ============================================================================
   location /valgrind/ {
     alias /usr/share/doc/valgrind/html/;
     index on;
@@ -21,21 +24,32 @@ server {
   #   try_files $uri $uri/ /index.html;
   # }
 
+  # ============================================================================
+  # Caching
+  # ============================================================================
   location /apt-cacher-ng/ {
     alias /usr/share/doc/apt-cacher-ng/html/;
     index on;
     try_files $uri $uri/ /index.html;
   }
 
+  # ============================================================================
+  # Main
+  # ============================================================================
   location /neomutt/ {
     alias /usr/share/doc/neomutt/html/;
     index on;
     try_files $uri $uri/ /index.html;
   }
 
+  # ============================================================================
+  # Index
+  # ============================================================================
   location / {
     root /var/www/librarian/;
     # index librarian.html;
     try_files $uri $uri/ /index.html;
   }
+
+
 }
