@@ -66,6 +66,12 @@ server {
     try_files $uri $uri/ /doc.html;
   }
 
+  location /netplan/ {
+    alias /usr/share/doc/netplan/;
+    index on;
+    try_files $uri $uri/ /netplan.html;
+  }
+
   # ============================================================================
   # Index
   # ============================================================================
