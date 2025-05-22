@@ -87,6 +87,12 @@ server {
     try_files $uri $uri/ AccountsService.html;
   }
 
+  location /smartmontools-badblocks/ {
+    alias /usr/share/doc/smartmontools/;
+    index on;
+    try_files $uri $uri/ badblockhowto.html;
+  }
+
   location /font-config/ {
     alias /usr/share/doc/fontconfig/;
     index on;
