@@ -84,6 +84,12 @@ server {
     try_files $uri $uri/ /index.html;
   }
 
+  location /socat/ {
+    alias /usr/share/doc/socat/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   # ============================================================================
   # Utility
   # ============================================================================
