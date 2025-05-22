@@ -78,6 +78,12 @@ server {
     try_files $uri $uri/ /netplan.html;
   }
 
+  location /openconnect/ {
+    alias /usr/share/doc/openconnect/html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   # ============================================================================
   # Utility
   # ============================================================================
