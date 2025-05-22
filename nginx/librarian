@@ -21,6 +21,12 @@ server {
   #   try_files $uri $uri/ /index.html;
   # }
 
+  location /apt-cacher-ng/ {
+    alias /usr/share/doc/apt-cacher-ng/html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
   location / {
     root /var/www/librarian/;
     # index librarian.html;
