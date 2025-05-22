@@ -1,0 +1,29 @@
+server {
+  # server_name docs.nugget;
+  listen 9000;
+  add_header X-Served-By "Doc server";
+
+  location /valgrind/ {
+    alias /usr/share/doc/valgrind/html/;
+    index on;
+    try_files $uri $uri/ /index.html;
+  }
+
+  location /valgrind-tool/ {
+    alias /usr/libexec/valgrind/;
+    index on;
+    try_files $uri $uri/ /dh_view.html;
+  }
+
+  # location /rust/ {
+  #   alias /home/daniel/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/;
+  #   index on;
+  #   try_files $uri $uri/ /index.html;
+  # }
+
+  location / {
+    root /var/www/librarian/;
+    # index librarian.html;
+    try_files $uri $uri/ /index.html;
+  }
+}

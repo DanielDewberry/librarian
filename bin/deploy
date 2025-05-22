@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -ex
+
+sudo rsync --recursive --delete html/ /var/www/librarian
+sudo chown -R "${USER}:www-data" /var/www/librarian
+find -P /var/www/librarian/ -xdev -type f -print0 | xargs -0 sudo chmod -R 644
+find -P /var/www/librarian/ -xdev -type d -print0 | xargs -0 sudo chmod -R 755
+
+sudo cp nginx/librarian /etc/nginx/sites-available/
+sudo chown www-data:www-data /etc/nginx/sites-available/
+sudo chmod 444 /etc/nginx/sites-available/
+sudo ln -sf /etc/nginx/sites-available/librarian /etc/nginx/sites-enabled/librarian
+
+sudo systemctl restart nginx
